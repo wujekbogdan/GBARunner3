@@ -6,8 +6,8 @@ jobs:
   run-container:
     runs-on: windows-2022
 
-    env:
-      DEVKITPRO: =C:\msys64\opt\devkitpro
+#    env:
+#      DEVKITPRO: C:\msys64\opt\devkitpro
 
     defaults:
       run:
