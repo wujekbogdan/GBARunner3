@@ -8,6 +8,7 @@ jobs:
 
     env:
       DEVKITARM: c:/devkitpro/opt/devkitpro/devkitARM
+      DEVKITPRO: c:/devkitpro/opt/devkitpro/
 
     defaults:
       run:
