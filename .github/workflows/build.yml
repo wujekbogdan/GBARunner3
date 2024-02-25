@@ -19,7 +19,7 @@ jobs:
         run: powershell -Command "wget https://github.com/devkitPro/installer/releases/download/v3.0.3/devkitProUpdater-3.0.3.exe -OutFile devkitProUpdater.exe"
 
       - name: Install devkitPro
-        run: ./devkitProUpdater.exe --install --quiet
+        run: ./devkitProUpdater.exe --install --quiet --path="C:\devkitPro"
 
       - name: Build
         run: powershell -Command "cd code; make"
