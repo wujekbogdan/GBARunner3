@@ -31,7 +31,7 @@ jobs:
 
       - name: Build
         run: |
-          cd c:\devkitpro
+          cd c:\devkitpro\opt
           ls
           # cd code
           # make
