@@ -4,7 +4,8 @@ on: [push]
 
 jobs:
   run-container:
-    runs-on: ubuntu-22.04
+#    runs-on: ubuntu-22.04
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -12,10 +13,16 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Build
-        run: |
-          docker run \
-            -v $(pwd):/workspace \
-            -w /workspace \
-            --rm \
-            devkitpro/devkitarm sh -c "cd code && make"
+#      - name: Build
+#        run: |
+#          docker run \
+#            -v $(pwd):/workspace \
+#            -w /workspace \
+#            --rm \
+#            devkitpro/devkitarm sh -c "cd code && make"
+
+      - name: Download devkitPro
+        run: powershell -Command "wget https://github.com/devkitPro/installer/releases/download/latest/devkitProUpdater.exe -OutFile devkitProUpdater.exe"
+
+      - name: Install devkitPro
+        run: ./devkitProUpdater.exe --install --quiet  # Adjust arguments as needed
