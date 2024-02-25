@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2022
 
     env:
-      DEVKITARM: C:/devkitpro/opt/devkitpro/devkitARM
+      DEVKITARM: c:/devkitpro/opt/devkitpro/devkitARM
 
     defaults:
       run:
@@ -26,11 +26,11 @@ jobs:
         run: |
           pacman -Sy --noconfirm wget make
           wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -O devkitARM-r63-1-windows_x86_64.pkg.tar.zst
-          mkdir -p c:\devkitpro
-          tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:\devkitpro
+          mkdir -p c:/devkitpro
+          tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:/devkitpro
           wget https://wii.leseratte10.de/devkitPro/devkitARM/devkitarm-rules/devkitarm-rules-1.5.1.tar.gz -O devkitarm-rules-1.5.1.tar.gz
           tar -xvf devkitarm-rules-1.5.1.tar.gz
-          cp ./devkitarm-rules-1.5.1/ds_rules C:/devkitpro/opt/devkitpro/devkitARM/
+          cp ./devkitarm-rules-1.5.1/ds_rules c:/devkitpro/opt/devkitpro/devkitARM
 
       - name: Build
         run: |
