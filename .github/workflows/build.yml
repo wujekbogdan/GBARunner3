@@ -31,5 +31,6 @@ jobs:
 
       - name: Build
         run: |
+          ls C:\devkitpro\opt\devkitpro\devkitARM
           cd code
           make
