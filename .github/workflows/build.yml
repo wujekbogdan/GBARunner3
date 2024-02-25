@@ -9,6 +9,10 @@ jobs:
     env:
       DEVKITARM: C:\devkitpro\devkitARM
 
+    defaults:
+      run:
+        shell: msys2 {0}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,10 +23,8 @@ jobs:
         uses: msys2/setup-msys2@v2
 
       - name: Download devkitPro
-        shell: pwsh
         run: |
-          wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -OutFile devkitARM-r63-1-windows_x86_64.pkg.tar.zst
-          Expand-Archive -Path devkitARM-r63-1-windows_x86_64.pkg.tar.zst -DestinationPath c:\devkitpro
-          cd c:\devkitpro
-          dir
-          
+          pacman -Sy --noconfirm wget
+          wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -O devkitARM-r63-1-windows_x86_64.pkg.tar.zst
+          tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C /c/devkitpro
+          ls /c/devkitpro
