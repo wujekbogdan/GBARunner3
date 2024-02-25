@@ -7,8 +7,8 @@ jobs:
     runs-on: windows-2022
 
     env:
-      DEVKITPRO: c:/devkitpro/opt/devkitpro/
-      DEVKITARM: ${{ env.DEVKITPRO }}devkitARM
+      DEVKITARM: c:/devkitpro/opt/devkitpro/devkitARM
+      DEVKITPRO: c:/devkitpro/opt/devkitpro
 
     defaults:
       run:
