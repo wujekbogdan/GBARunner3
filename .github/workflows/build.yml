@@ -24,7 +24,7 @@ jobs:
 
       - name: Download devkitPro
         run: |
-          pacman -Sy --noconfirm wget
+          pacman -Sy --noconfirm wget make
           wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -O devkitARM-r63-1-windows_x86_64.pkg.tar.zst
           mkdir -p c:\devkitpro
           tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:\devkitpro
@@ -32,4 +32,4 @@ jobs:
       - name: Build
         run: |
           cd code
-          mingw32-make
+          make
