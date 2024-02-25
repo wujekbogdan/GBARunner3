@@ -6,9 +6,6 @@ jobs:
   run-container:
     runs-on: windows-2022
 
-    env:
-      DEVKITARM: C:\devkitPro\devkitARM
-
     defaults:
       run:
         shell: msys2 {0}
@@ -19,16 +16,16 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Updates pacman repos
+      - name: Setup MSYS2 Environment
         uses: msys2/setup-msys2@v2
+
+      - name: Updates pacman repos
         run: cat ./dpk-pacman.repos.conf >> /etc/pacman.conf
 
       - name: Updates pacman repos
-        uses: msys2/setup-msys2@v2
         run: cat /etc/pacman.conf
 
       - name: Install dependencies
-        uses: msys2/setup-msys2@v2
         run: |
           pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com
           pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0 
