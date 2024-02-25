@@ -20,9 +20,6 @@ jobs:
         uses: msys2/setup-msys2@v2
 
       - name: Updates pacman repos
-        run: cat ./dpk-pacman.repos.conf >> /etc/pacman.conf
-
-      - name: Updates pacman repos
         run: |
           echo "
           [dkp-libs]
