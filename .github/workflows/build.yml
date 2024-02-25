@@ -26,5 +26,5 @@ jobs:
         run: |
           pacman -Sy --noconfirm wget
           wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -O devkitARM-r63-1-windows_x86_64.pkg.tar.zst
-          tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:/devkitpro
-          ls c:/devkitpro
+          tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:\devkitpro
+          ls c:\devkitpro
