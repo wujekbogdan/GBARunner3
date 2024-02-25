@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2022
 
     env:
-      DEVKITARM: C:/devkitpro/opt/devkitpro/devkitARM
+      DEVKITARM: C:/devkitpro/opt/devkitpro/devkitARM/
 
     defaults:
       run:
@@ -31,7 +31,5 @@ jobs:
 
       - name: Build
         run: |
-          cd c:/devkitpro/opt/devkitpro/devkitARM/
-          ls
-          # cd code
-          # make
+           cd code
+           make
