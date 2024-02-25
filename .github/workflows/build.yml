@@ -6,6 +6,9 @@ jobs:
   run-container:
     runs-on: windows-latest
 
+    env:
+      DEVKITARM: C:\devkitPro\devkitARM
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,7 +22,5 @@ jobs:
         run: ./devkitProUpdater.exe --install --quiet
 
       - name: Build
-        run: |
-          echo "DEVKITARM=C:\devkitPro\devkitARM" >> $GITHUB_ENV
-          powershell -Command "cd code; make" 
-    
+        run: powershell -Command "cd code; make"
+
