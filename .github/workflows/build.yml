@@ -21,8 +21,8 @@ jobs:
 #            --rm \
 #            devkitpro/devkitarm sh -c "cd code && make"
 
-      - name: Download devkitPro
-        run: powershell -Command "wget https://github.com/devkitPro/installer/releases/download/latest/devkitProUpdater.exe -OutFile devkitProUpdater.exe"
+      - name: Download devkitPro 3.0.3
+        run: powershell -Command "wget https://github.com/devkitPro/installer/releases/download/v3.0.3/devkitProUpdater-3.0.3.exe -OutFile devkitProUpdater.exe"
 
       - name: Install devkitPro
-        run: ./devkitProUpdater.exe --install --quiet  # Adjust arguments as needed
+        run: ./devkitProUpdater.exe --install --quiet
