@@ -32,4 +32,4 @@ jobs:
       - name: Build
         run: |
           cd code
-          make
+          mingw32-make
