@@ -1,0 +1,21 @@
+name: Build
+
+on: [push]
+
+jobs:
+  run-container:
+    runs-on: ubuntu:24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Run Docker container
+        run: |
+          docker run \
+            -v $(pwd):/workspace \
+            -w /workspace \
+            --rm \
+            devkitpro/devkitarm sh -c "cd code && make"
