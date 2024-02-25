@@ -6,12 +6,8 @@ jobs:
   run-container:
     runs-on: windows-2022
 
-#    env:
-#      DEVKITPRO: C:\msys64\opt\devkitpro
-
-    defaults:
-      run:
-        shell: msys2 {0}
+    env:
+      DEVKITARM: C:\devkitpro\devkitARM
 
     steps:
       - name: Checkout code
@@ -22,21 +18,11 @@ jobs:
       - name: Setup MSYS2 Environment
         uses: msys2/setup-msys2@v2
 
-      - name: Updates pacman repos
+      - name: Download devkitPro
+        shell: pwsh
         run: |
-          echo "
-          [dkp-libs]
-          Server = https://pkg.devkitpro.org/packages
-
-          [dkp-windows]
-          Server = https://pkg.devkitpro.org/packages/windows/x86_64/
-          " >> /etc/pacman.conf
-
-      - name: Install dependencies
-        run: |
-          cat /etc/pacman.conf
-          pacman-key --recv BC26F752D25B92CE272E0F44F7FD5492264BB9D0 --keyserver keyserver.ubuntu.com
-          pacman-key --lsign BC26F752D25B92CE272E0F44F7FD5492264BB9D0
-
-      - name: Sync pacman
-        run: pacman -Sy
+          wget https://wii.leseratte10.de/devkitPro/devkitARM/r63%20%282024-02-01%29/devkitARM-r63-1-windows_x86_64.pkg.tar.zst -OutFile devkitARM-r63-1-windows_x86_64.pkg.tar.zst
+          Expand-Archive -Path devkitARM-r63-1-windows_x86_64.pkg.tar.zst -DestinationPath c:\devkitpro
+          cd c:\devkitpro
+          dir
+          
