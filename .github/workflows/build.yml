@@ -7,8 +7,8 @@ jobs:
     runs-on: windows-2022
 
     env:
-      DEVKITARM: c:/devkitpro/opt/devkitpro/devkitARM
       DEVKITPRO: c:/devkitpro/opt/devkitpro/
+      DEVKITARM: ${{ env.DEVKITPRO }}devkitARM
 
     defaults:
       run:
@@ -31,7 +31,7 @@ jobs:
           tar -xvf devkitARM-r63-1-windows_x86_64.pkg.tar.zst -C c:/devkitpro
           wget https://wii.leseratte10.de/devkitPro/devkitARM/devkitarm-rules/devkitarm-rules-1.5.1.tar.gz -O devkitarm-rules-1.5.1.tar.gz
           tar -xvf devkitarm-rules-1.5.1.tar.gz
-          cp ./devkitarm-rules-1.5.1/ds_rules c:/devkitpro/opt/devkitpro/devkitARM
+          cp ./devkitarm-rules-1.5.1/* c:/devkitpro/opt/devkitpro/devkitARM
 
       - name: Build
         run: |
