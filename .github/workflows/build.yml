@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   run-container:
-#    runs-on: ubuntu-22.04
     runs-on: windows-latest
 
     steps:
@@ -13,24 +12,14 @@ jobs:
         with:
           submodules: recursive
 
-#      - name: Build
-#        run: |
-#          docker run \
-#            -v $(pwd):/workspace \
-#            -w /workspace \
-#            --rm \
-#            devkitpro/devkitarm sh -c "cd code && make"
-
       - name: Download devkitPro 3.0.3
         run: powershell -Command "wget https://github.com/devkitPro/installer/releases/download/v3.0.3/devkitProUpdater-3.0.3.exe -OutFile devkitProUpdater.exe"
 
       - name: Install devkitPro
         run: ./devkitProUpdater.exe --install --quiet
 
-      - name: Set DEVKITARM Environment Variable
+      - name: Build
         run: |
           echo "DEVKITARM=C:\devkitPro\devkitARM" >> $GITHUB_ENV
-
-      - name: Build
-        run: powershell -Command "cd code; make"
-
+          powershell -Command "cd code; make" 
+    
