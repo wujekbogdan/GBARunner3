@@ -27,6 +27,10 @@ jobs:
       - name: Install devkitPro
         run: ./devkitProUpdater.exe --install --quiet
 
+      - name: Set DEVKITARM Environment Variable
+        run: |
+          echo "DEVKITARM=C:\devkitPro\devkitARM" >> $GITHUB_ENV
+
       - name: Build
         run: powershell -Command "cd code; make"
 
